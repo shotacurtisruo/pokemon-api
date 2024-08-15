@@ -10,16 +10,26 @@ async function fetchData(){
         const data = await response.json();
         const pokemonSprite = data.sprites.front_default;
         const shinyPokemonSprite = data.sprites.front_shiny;
-
+        const pokemonSpecies = data.species.name;
         
+
+
         const imgElement = document.getElementById("pokemonSprite");
         const shinyImgElement = document.getElementById("shinyPokemonSprite");
+        const pokemonDescription = document.getElementById("pokemonDescription");
+        
 
         imgElement.src = pokemonSprite;
         imgElement.style.display = "block";
 
+
         shinyImgElement.src = shinyPokemonSprite;
         shinyImgElement.style.display = "block";
+
+        pokemonDescription.textContent = pokemonSpecies;
+
+     
+
 
     }
     catch(error){
